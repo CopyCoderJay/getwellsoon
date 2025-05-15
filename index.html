@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title> HTML's Garden</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      background: #e0f7fa;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #00796b;
+    }
+
+    #garden {
+      margin: 30px auto;
+      width: 300px;
+      height: 300px;
+      border: 3px dashed #4db6ac;
+      border-radius: 10px;
+      background: #a7ffeb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #4db6ac;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .btn:disabled {
+      background-color: #b2dfdb;
+      cursor: not-allowed;
+    }
+
+    .seed, .sprout, .plant {
+      font-size: 48px;
+      display: none;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 24px;
+      color: #00695c;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌱 HTML's Garden 🌸</h1>
+  <div id="garden">
+    <div class="seed">🌰</div>
+    <div class="sprout">🌱</div>
+    <div class="plant">🌷</div>
+  </div>
+
+  <button class="btn" id="pickSeedBtn">Pick a Seed</button>
+  <button class="btn" id="plantSeedBtn" disabled>Plant it</button>
+  <button class="btn" id="waterSeedBtn" disabled>Water it</button>
+
+  <div class="message" id="message"> <p>🌼 Get Well Soon Vaan! 🌼</p><p>🌼 aapakee yaad aa rahee hai! 🌼</p></div>
+
+
+
+  <script>
+    const seed = document.querySelector(".seed");
+    const sprout = document.querySelector(".sprout");
+    const plant = document.querySelector(".plant");
+    const message = document.getElementById("message");
+
+    document.getElementById("pickSeedBtn").onclick = () => {
+      seed.style.display = "block";
+      sprout.style.display = "none";
+      plant.style.display = "none";
+      message.style.display = "none";
+      document.getElementById("plantSeedBtn").disabled = false;
+      document.getElementById("waterSeedBtn").disabled = true;
+    };
+
+    document.getElementById("plantSeedBtn").onclick = () => {
+      seed.style.display = "none";
+      sprout.style.display = "block";
+      document.getElementById("waterSeedBtn").disabled = false;
+    };
+
+    document.getElementById("waterSeedBtn").onclick = () => {
+      sprout.style.display = "none";
+      plant.style.display = "block";
+      message.style.display = "block";
+    };
+  </script>
+</body>
+</html>
